@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy 6 Months of Us ❤️</title>
+  <title>Happy 6th month anniversary ammu</title>
 
   <!-- Google Fonts: Cormorant Garamond (romantic display) + Lato (body) -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
@@ -1694,11 +1694,11 @@
       btn.addEventListener('click', () => {
         if (playing) {
           audio.pause();
-          btn.textContent = 'â–¶';
+          btn.textContent = '▶';
           eq.classList.add('paused');
         } else {
           audio.play().catch(() => {});
-          btn.textContent = 'â¸';
+          btn.textContent = '▶';
           eq.classList.remove('paused');
         }
         playing = !playing;
@@ -1706,13 +1706,13 @@
 
       audio.addEventListener('pause', () => {
         playing = false;
-        btn.textContent = 'â–¶';
+        btn.textContent = '⏸';
         eq.classList.add('paused');
       });
 
       audio.addEventListener('play', () => {
         playing = true;
-        btn.textContent = 'â¸';
+        btn.textContent = '⏸';
         eq.classList.remove('paused');
       });
     })();
