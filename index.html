@@ -171,7 +171,8 @@
       font-style: italic;
       font-size: 0.55em;
       font-weight: 300;
-      color: var(--rose);
+      color: #fff4f8;
+      text-shadow: 0 4px 24px rgba(116, 18, 53, 0.55);
       letter-spacing: 0.08em;
     }
 
@@ -192,10 +193,10 @@
 
     .hero-date {
       font-family: var(--font-body);
-      font-size: clamp(0.85rem, 2vw, 1rem);
+      font-size: clamp(0.95rem, 2.2vw, 1.1rem);
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.92);
       margin-bottom: 2.5rem;
       animation: heroReveal 1.4s 0.8s ease both;
     }
@@ -325,10 +326,7 @@
 
     /* Equalizer bars (playing indicator) */
     .eq-bars {
-      display: flex;
-      align-items: flex-end;
-      gap: 2px;
-      height: 16px;
+      display: none;
     }
 
     .eq-bar {
@@ -739,6 +737,10 @@
       background: linear-gradient(160deg, #fff8f3 0%, #eef5ff 100%);
     }
 
+    .memory-gallery-section.funny-moments {
+      background: linear-gradient(160deg, #fff1e8 0%, #ffe3f1 48%, #eef7ff 100%);
+    }
+
     .memory-gallery-wrap {
       max-width: 980px;
       margin: 0 auto;
@@ -892,17 +894,41 @@
     ============================================================ */
     #love-letter {
       padding: 7rem 1rem;
-      background: var(--cream);
+      background: radial-gradient(circle at top, rgba(255, 215, 225, 0.95), rgba(255, 240, 244, 0.92) 38%, rgba(255, 228, 236, 0.96) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #love-letter::before,
+    #love-letter::after {
+      content: '❤';
+      position: absolute;
+      font-size: clamp(7rem, 18vw, 12rem);
+      color: rgba(214, 65, 108, 0.08);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    #love-letter::before {
+      top: 2rem;
+      left: 2rem;
+      transform: rotate(-12deg);
+    }
+
+    #love-letter::after {
+      right: 2rem;
+      bottom: 2rem;
+      transform: rotate(14deg);
     }
 
     .letter-card {
       max-width: 680px;
       margin: 0 auto;
-      background: rgba(255,255,255,0.9);
-      border: 1px solid rgba(244,167,185,0.25);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 244, 247, 0.98));
+      border: 1px solid rgba(214, 65, 108, 0.22);
       border-radius: 28px;
       padding: clamp(2rem, 5vw, 4rem);
-      box-shadow: 0 20px 60px rgba(180,80,120,0.12);
+      box-shadow: 0 24px 70px rgba(214, 65, 108, 0.16);
       position: relative;
       overflow: hidden;
     }
@@ -922,17 +948,18 @@
     .letter-salutation {
       font-family: var(--font-script);
       font-size: 1.6rem;
-      color: var(--deep-rose);
+      color: #c2265c;
       margin-bottom: 1.2rem;
     }
 
     #typed-letter {
       font-family: var(--font-display);
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      font-weight: 300;
-      line-height: 1.9;
-      color: var(--text);
-      min-height: 6em;
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      font-weight: 500;
+      line-height: 1.7;
+      color: #8f1d4f;
+      min-height: 3em;
+      text-align: center;
     }
 
     .cursor-blink {
@@ -953,9 +980,72 @@
     .letter-sign {
       font-family: var(--font-script);
       font-size: 1.3rem;
-      color: var(--deep-rose);
+      color: #c2265c;
       text-align: right;
       margin-top: 1.5rem;
+    }
+
+    .love-names {
+      position: relative;
+      max-width: 980px;
+      min-height: 420px;
+      margin: 0 auto 2.5rem;
+      pointer-events: none;
+    }
+
+    .love-name {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(214, 65, 108, 0.18);
+      box-shadow: 0 10px 24px rgba(214, 65, 108, 0.12);
+      color: #c2265c;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      backdrop-filter: blur(8px);
+    }
+
+    .love-name::before {
+      content: '❤';
+      color: #e23e72;
+      font-size: 0.85rem;
+    }
+
+    .love-name.one { top: 1rem; left: 4%; transform: rotate(-10deg); }
+    .love-name.two { top: 1.5rem; right: 5%; transform: rotate(8deg); }
+    .love-name.three { top: 5.4rem; left: 16%; transform: rotate(-6deg); }
+    .love-name.four { top: 5.8rem; right: 15%; transform: rotate(10deg); }
+    .love-name.five { top: 10.6rem; left: 2%; transform: rotate(-8deg); }
+    .love-name.six { top: 10.8rem; right: 2%; transform: rotate(6deg); }
+    .love-name.seven { top: 15.5rem; left: 8%; transform: rotate(7deg); }
+    .love-name.eight { top: 15.3rem; right: 9%; transform: rotate(-7deg); }
+    .love-name.nine { top: 20.2rem; left: 1%; transform: rotate(-4deg); }
+    .love-name.ten { top: 20rem; right: 2%; transform: rotate(5deg); }
+    .love-name.eleven { top: 25rem; left: 10%; transform: rotate(-9deg); }
+    .love-name.twelve { top: 24.6rem; right: 10%; transform: rotate(6deg); }
+    .love-name.thirteen { bottom: 2.4rem; left: 4%; transform: rotate(-5deg); }
+    .love-name.fourteen { bottom: 2rem; right: 4%; transform: rotate(7deg); }
+    .love-name.fifteen { bottom: 0.8rem; left: 23%; transform: rotate(-4deg); }
+    .love-name.sixteen { bottom: 0.6rem; right: 22%; transform: rotate(4deg); }
+    .love-name.seventeen { bottom: 8rem; left: 19%; transform: rotate(-8deg); }
+
+    .letter-heart-row {
+      text-align: center;
+      font-size: 1.3rem;
+      letter-spacing: 0.25rem;
+      color: #e23e72;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    #love-letter .section-subtitle {
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      color: #c2265c;
+      margin-bottom: 2.5rem;
     }
 
     /* ============================================================
@@ -1023,11 +1113,16 @@
     }
 
     .final-message {
-      max-width: 520px;
+      max-width: 920px;
       margin: 0 auto;
-      font-size: clamp(0.9rem, 2vw, 1.05rem);
-      line-height: 1.85;
-      color: rgba(255,255,255,0.65);
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 6vw, 5.6rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: #fff4f8;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.22);
+      letter-spacing: 0.01em;
+      text-wrap: balance;
     }
 
     .final-divider {
@@ -1143,6 +1238,20 @@
 
       .timer-grid { gap: 0.8rem; }
       .timer-card { padding: 1.2rem 1rem; min-width: 90px; }
+
+      .love-names {
+        min-height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+      }
+
+      .love-name {
+        position: static;
+        transform: none !important;
+      }
     }
   </style>
 </head>
@@ -1159,8 +1268,8 @@
   <div id="music-player" role="complementary" aria-label="Music Player">
     <button id="play-btn" aria-label="Play/Pause music">â–¶</button>
     <div class="music-info">
-      <span class="music-title">Perfect â€“ Ed Sheeran</span>
-      <span class="music-label">â™« Our Song</span>
+      <span class="music-title">Mundhinam Parthene Instrumental</span>
+      <span class="music-label">Our Song</span>
     </div>
     <div class="eq-bars paused" id="eq">
       <div class="eq-bar"></div>
@@ -1170,10 +1279,8 @@
     </div>
   </div>
 
-  <!-- Hidden audio element â€” replace src with your music URL -->
-  <audio id="bg-music" loop preload="none">
-    <!-- Replace the src below with your music file URL -->
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg" />
+  <audio id="bg-music" loop preload="auto" autoplay>
+    <source src="Mundhinam Parthene Instrumental.mp3" type="audio/mpeg" />
   </audio>
 
   <!-- ============================================================
@@ -1194,8 +1301,7 @@
         Happy 6th month anniversary
         <span>ammu❤️😘</span>
       </h1>
-      <span class="hero-heart">â¤ï¸</span>
-      <p class="hero-date">Since October 9, 2025</p>
+      <p class="hero-date">FROM OCTOBER 9, 2025</p>
       <a href="#timer" class="btn-primary">Start Our Journey</a>
     </div>
 
@@ -1303,7 +1409,7 @@
         <div class="timeline-text">
           <span class="timeline-tag">Places Remember Us</span>
           <h3>Our Story Stayed There Too ❤️</h3>
-          <p>And somehow…<br />those walls and tables remember us and now our story❤️</p>
+          <p>And somehow…<br />those walls and tables know our stories❤️</p>
         </div>
       </div>
 
@@ -1397,11 +1503,37 @@
     </div>
   </section>
 
-  <section class="memory-gallery-section alt">
+  <section class="memory-gallery-section funny-moments">
     <div class="memory-gallery-wrap">
       <h2 class="section-title reveal">Your funny moments… I loved them the most❤️</h2>
-      <div class="memory-gallery-frame reveal">
-        <p class="memory-gallery-note">Add your photos here one by one.</p>
+      <div class="memory-gallery-frame slider reveal" id="memory-slider-2">
+        <div class="memory-slide active">
+          <img src="photo7.jpg" alt="Funny memory 1" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo8.jpg" alt="Funny memory 2" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo10.jpg" alt="Funny memory 3" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo11.jpg" alt="Funny memory 4" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo9.jpg" alt="Funny memory 5" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo14.jpg" alt="Funny memory 6" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo12.jpg" alt="Funny memory 7" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo13.jpg" alt="Funny memory 8" loading="lazy" class="portrait" />
+        </div>
+        <button class="memory-arrow prev" aria-label="Previous memory">&#8249;</button>
+        <button class="memory-arrow next" aria-label="Next memory">&#8250;</button>
+        <div class="memory-dots"></div>
       </div>
     </div>
   </section>
@@ -1409,8 +1541,25 @@
   <section class="memory-gallery-section">
     <div class="memory-gallery-wrap">
       <h2 class="section-title reveal">Our iconic moments…❤️</h2>
-      <div class="memory-gallery-frame reveal">
-        <p class="memory-gallery-note">Add your photos here one by one.</p>
+      <div class="memory-gallery-frame slider reveal" id="memory-slider-3">
+        <div class="memory-slide active">
+          <img src="photo15.jpg" alt="Iconic memory 1" loading="lazy" class="landscape" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo16.jpg" alt="Iconic memory 2" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo17.jpg" alt="Iconic memory 3" loading="lazy" class="landscape" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo18.jpg" alt="Iconic memory 4" loading="lazy" class="landscape" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo19.jpg" alt="Iconic memory 5" loading="lazy" class="landscape" />
+        </div>
+        <button class="memory-arrow prev" aria-label="Previous memory">&#8249;</button>
+        <button class="memory-arrow next" aria-label="Next memory">&#8250;</button>
+        <div class="memory-dots"></div>
       </div>
     </div>
   </section>
@@ -1419,14 +1568,34 @@
        5. LOVE LETTER SECTION
   ============================================================ -->
   <section id="love-letter">
-    <h2 class="section-title reveal">A Letter for You</h2>
-    <p class="section-subtitle reveal">From my heart to yours ðŸ’Œ</p>
+    <p class="section-subtitle reveal">From my heart to yours ❤️</p>
+
+    <div class="love-names reveal">
+      <span class="love-name one">kutty</span>
+      <span class="love-name two">paapa</span>
+      <span class="love-name three">ammu</span>
+      <span class="love-name four">thango</span>
+      <span class="love-name five">chello</span>
+      <span class="love-name six">ammulu</span>
+      <span class="love-name seven">pattu</span>
+      <span class="love-name eight">thangakutty</span>
+      <span class="love-name nine">pattukutty</span>
+      <span class="love-name ten">chellakutty</span>
+      <span class="love-name eleven">samykutty</span>
+      <span class="love-name twelve">kannu</span>
+      <span class="love-name thirteen">kolandha</span>
+      <span class="love-name fourteen">azhagu</span>
+      <span class="love-name fifteen">paapakutty</span>
+      <span class="love-name sixteen">azhagupulla</span>
+      <span class="love-name seventeen">singakutty</span>
+    </div>
 
     <div class="letter-card reveal">
       <p class="letter-salutation">My Dearest Love,</p>
       <div id="typed-letter"></div>
+      <div class="letter-heart-row">❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤</div>
       <div class="final-divider" style="margin: 1.5rem 0;"></div>
-      <p class="letter-sign">Forever yours, with love â¤ï¸</p>
+      <p class="letter-sign">Forever yours, with love ❤️</p>
     </div>
   </section>
 
@@ -1436,12 +1605,8 @@
   <section id="final">
     <div class="final-glow"></div>
     <div class="final-content">
-      <span class="final-icon">ðŸ’•</span>
-      <h2 class="final-title">This is just<br />the beginning.</h2>
-      <p class="final-sub">Here's to forever and a day more ðŸŒ™</p>
-      <div class="final-divider"></div>
       <p class="final-message">
-        Six months ago, my life got infinitely more beautiful. Thank you for every laugh, every hug, every quiet moment, and every adventure. You are my favourite story, and I can't wait to keep writing it â€” together.
+        Thanks for coming into my life ammu😘😘😘😘😘😘😘😘
       </p>
     </div>
   </section>
@@ -1574,63 +1739,94 @@
     })();
 
     /* ============================================
+       TRAIN ROUTE SCROLL MOTION
+    ============================================ */
+    (() => {
+      const section = document.getElementById('train-journey');
+      if (!section) return;
+
+      const stops = Array.from(section.querySelectorAll('.route-stop'));
+
+      function updateRoute() {
+        const rect = section.getBoundingClientRect();
+        const travel = window.innerHeight + rect.height;
+        const seen = window.innerHeight - rect.top;
+        const progress = Math.max(0, Math.min(1, seen / travel));
+        section.style.setProperty('--journey-progress', progress.toFixed(3));
+
+        const activeCount = Math.max(1, Math.min(stops.length, Math.floor(progress * (stops.length - 1)) + 1));
+        stops.forEach((stop, index) => {
+          stop.classList.toggle('active', index < activeCount);
+        });
+      }
+
+      updateRoute();
+      window.addEventListener('scroll', updateRoute, { passive: true });
+      window.addEventListener('resize', updateRoute);
+    })();
+
+    /* ============================================
        MEMORY SLIDER
     ============================================ */
     (() => {
-      const slider = document.getElementById('memory-slider-1');
-      if (!slider) return;
+      const sliders = Array.from(document.querySelectorAll('.memory-gallery-frame.slider'));
+      if (!sliders.length) return;
 
-      const slides = Array.from(slider.querySelectorAll('.memory-slide'));
-      const dotsWrap = slider.querySelector('.memory-dots');
-      const prevBtn = slider.querySelector('.memory-arrow.prev');
-      const nextBtn = slider.querySelector('.memory-arrow.next');
-      let current = 0;
-      let timer;
+      sliders.forEach((slider) => {
+        const slides = Array.from(slider.querySelectorAll('.memory-slide'));
+        const dotsWrap = slider.querySelector('.memory-dots');
+        const prevBtn = slider.querySelector('.memory-arrow.prev');
+        const nextBtn = slider.querySelector('.memory-arrow.next');
+        let current = 0;
+        let timer;
 
-      slides.forEach((_, index) => {
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.className = 'memory-dot' + (index === 0 ? ' active' : '');
-        dot.setAttribute('aria-label', `Go to memory ${index + 1}`);
-        dot.addEventListener('click', () => {
-          goTo(index);
+        if (!slides.length || !dotsWrap || !prevBtn || !nextBtn) return;
+        dotsWrap.innerHTML = '';
+
+        slides.forEach((_, index) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'memory-dot' + (index === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', `Go to memory ${index + 1}`);
+          dot.addEventListener('click', () => {
+            goTo(index);
+            autoPlay();
+          });
+          dotsWrap.appendChild(dot);
+        });
+
+        function goTo(index) {
+          slides[current].classList.remove('active');
+          dotsWrap.children[current].classList.remove('active');
+          current = (index + slides.length) % slides.length;
+          slides[current].classList.add('active');
+          dotsWrap.children[current].classList.add('active');
+        }
+
+        function autoPlay() {
+          clearInterval(timer);
+          timer = setInterval(() => goTo(current + 1), 3500);
+        }
+
+        prevBtn.addEventListener('click', () => {
+          goTo(current - 1);
           autoPlay();
         });
-        dotsWrap.appendChild(dot);
-      });
 
-      function goTo(index) {
-        slides[current].classList.remove('active');
-        dotsWrap.children[current].classList.remove('active');
-        current = (index + slides.length) % slides.length;
-        slides[current].classList.add('active');
-        dotsWrap.children[current].classList.add('active');
-      }
+        nextBtn.addEventListener('click', () => {
+          goTo(current + 1);
+          autoPlay();
+        });
 
-      function autoPlay() {
-        clearInterval(timer);
-        timer = setInterval(() => goTo(current + 1), 3500);
-      }
-
-      prevBtn.addEventListener('click', () => {
-        goTo(current - 1);
         autoPlay();
       });
-
-      nextBtn.addEventListener('click', () => {
-        goTo(current + 1);
-        autoPlay();
-      });
-
-      autoPlay();
     })();
 
     /* ============================================
        TYPING ANIMATION (Love Letter)
     ============================================ */
     (() => {
-      // âœï¸ Customize this message
-      const message = `Six months have passed since you came into my life, and every single day has felt like a gift I didn't know I deserved. You are the kind of person who makes ordinary moments feel extraordinary â€” a random Tuesday becomes a memory worth keeping, simply because you were there.\n\nI love the way you laugh at your own jokes before the punchline. I love how you make me feel safe, seen, and endlessly loved. You have this quiet magic about you that I still haven't quite figured out, and I hope I never do â€” because falling for you, over and over again, is my favourite thing in the world.\n\nHere's to six months of 'us' â€” and to all the beautiful chapters still to be written. Thank you for being my person. Thank you for choosing me. I choose you too, always.`;
+      const message = `Love You paapa😘😘😘😘😘😘😘😘😘😘😘`;
 
       const el     = document.getElementById('typed-letter');
       const cursor = document.createElement('span');
@@ -1691,22 +1887,46 @@
       const eq    = document.getElementById('eq');
       let playing = false;
 
+      audio.volume = 1;
+      audio.load();
+
+      function startPlayback() {
+        if (!audio.paused) return;
+        audio.play().then(() => {
+          playing = true;
+          btn.textContent = '⏸';
+          eq.classList.remove('paused');
+          cleanupAutoStart();
+        }).catch(() => {});
+      }
+
+      function cleanupAutoStart() {
+        window.removeEventListener('load', startPlayback);
+        document.removeEventListener('DOMContentLoaded', startPlayback);
+        window.removeEventListener('pageshow', startPlayback);
+        window.removeEventListener('scroll', startPlayback);
+        window.removeEventListener('wheel', startPlayback);
+        window.removeEventListener('pointerdown', startPlayback);
+        window.removeEventListener('mousedown', startPlayback);
+        document.removeEventListener('click', startPlayback);
+        document.removeEventListener('touchstart', startPlayback);
+        document.removeEventListener('keydown', startPlayback);
+        document.removeEventListener('visibilitychange', startPlayback);
+      }
+
       btn.addEventListener('click', () => {
         if (playing) {
           audio.pause();
           btn.textContent = '▶';
           eq.classList.add('paused');
         } else {
-          audio.play().catch(() => {});
-          btn.textContent = '▶';
-          eq.classList.remove('paused');
+          startPlayback();
         }
-        playing = !playing;
       });
 
       audio.addEventListener('pause', () => {
         playing = false;
-        btn.textContent = '⏸';
+        btn.textContent = '▶';
         eq.classList.add('paused');
       });
 
@@ -1715,6 +1935,19 @@
         btn.textContent = '⏸';
         eq.classList.remove('paused');
       });
+
+      startPlayback();
+      document.addEventListener('DOMContentLoaded', startPlayback);
+      window.addEventListener('load', startPlayback);
+      window.addEventListener('pageshow', startPlayback);
+      window.addEventListener('scroll', startPlayback, { passive: true });
+      window.addEventListener('wheel', startPlayback, { passive: true });
+      window.addEventListener('pointerdown', startPlayback);
+      window.addEventListener('mousedown', startPlayback);
+      document.addEventListener('click', startPlayback);
+      document.addEventListener('touchstart', startPlayback);
+      document.addEventListener('keydown', startPlayback);
+      document.addEventListener('visibilitychange', startPlayback);
     })();
 
   </script>
